@@ -25,8 +25,7 @@ public class PlayerMovement : MonoBehaviour
         //if (Input.GetKeyDown(KeyCode.Space))
         if (Input.GetButtonDown("Jump") && IsGrounded())
         {
-            Debug.Log("Jump (Y+ impulse)");
-            GetComponent<Rigidbody>().velocity = new Vector3(rb.velocity.x, speed, rb.velocity.z);
+            Jump();
         }
         /*this method allows physics based deceleration to zero
        if (Input.GetKey(KeyCode.UpArrow))
@@ -50,6 +49,21 @@ public class PlayerMovement : MonoBehaviour
            rb.velocity = new Vector3(speed, rb.velocity.y, rb.velocity.z);
        }
        */
+    }
+    void Jump() {
+        GetComponent<Rigidbody>().velocity = new Vector3(rb.velocity.x, speed, rb.velocity.z);
+    }
+    void OnCollisionEnter(Collision collision)
+    {
+        if (collision.gameObject.CompareTag("Enemy Weakness"))
+        {
+            Kill(collision.gameObject);
+        }
+    }
+    void Kill(GameObject enemyWeakness)
+    {
+        Destroy(enemyWeakness.transform.parent.gameObject);
+        Jump();
     }
     bool IsGrounded() {
 

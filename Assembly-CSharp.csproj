@@ -58,9 +58,8 @@
   <ItemGroup>
     <Compile Include="Assets\Scripts\PlayerMovement.cs" />
     <Compile Include="Assets\Scripts\WaypointMovement.cs" />
-    <Compile Include="Assets\Scripts\StickyPlatform.cs" />
     <Compile Include="Assets\Scripts\Death.cs" />
-    <Compile Include="Assets\Kill.cs" />
+    <Compile Include="Assets\Scripts\StickyPlatform.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="UnityEngine">

@@ -17,9 +17,9 @@ public class Death : MonoBehaviour
     }
     void Kill(GameObject enemyWeakness)
     {
-        GameObject fullEnemy = enemyWeakness.transform.parent.gameObject;
-        fullEnemy.SetActive(false);
-        enemyWeakness.SetActive(false);
+        Destroy(enemyWeakness.transform.parent.gameObject);
+        //fullEnemy.SetActive(false);
+        //enemyWeakness.SetActive(false);
     }
     void Die() {
         GetComponent<MeshRenderer>().enabled = false;
