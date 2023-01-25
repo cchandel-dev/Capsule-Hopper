@@ -351,6 +351,7 @@
 -r:"Library/Bee/artifacts/1900b0aE.dag/UnityEngine.UI.ref.dll"
 "Assets/Scripts/Death.cs"
 "Assets/Scripts/PlayerMovement.cs"
+"Assets/Scripts/Rotate.cs"
 "Assets/Scripts/StickyPlatform.cs"
 "Assets/Scripts/WaypointMovement.cs"
 -langversion:9.0

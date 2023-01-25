@@ -1,13 +1,17 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using TMPro;
 public class PlayerMovement : MonoBehaviour
 {
     Rigidbody rb;
+    int coinsCollected = 0;
     [SerializeField] float speed = 5f;
     [SerializeField] Transform groundCheck;
     [SerializeField] LayerMask ground;
+    [SerializeField] TMP_Text coinsText;
+    [SerializeField] AudioSource coinSound;
+    [SerializeField] AudioSource jumpSound;
     // Start is called before the first frame update
     void Start()
     {
@@ -21,37 +25,49 @@ public class PlayerMovement : MonoBehaviour
         //use GetAxisRaw
         float horizontalinput = Input.GetAxis("Horizontal");
         float verticalinput = Input.GetAxis("Vertical");
+        float horizontal = Input.GetAxis("Horizontal Pan");
+        float vertical = Input.GetAxis("Vertical Pan");
+        Camera cam = rb.GetComponentInChildren<Camera>();
+        if (horizontal != 0) {
+            cam.transform.Rotate(new Vector3(horizontal * 5f, 0, 0));
+        }
+        if (vertical != 0)
+        {
+            cam.transform.Rotate(new Vector3(0, vertical * 5f, 0));
+        }
         rb.velocity = new Vector3(horizontalinput * speed, rb.velocity.y, verticalinput * speed);
-        //if (Input.GetKeyDown(KeyCode.Space))
         if (Input.GetButtonDown("Jump") && IsGrounded())
         {
             Jump();
         }
-        /*this method allows physics based deceleration to zero
-       if (Input.GetKey(KeyCode.UpArrow))
+        /*
+        //if (Input.GetKeyDown(KeyCode.Space))
+
+       if (Input.GetKey(KeyCode.A))
        {
-           Debug.Log("Move Forward (Z+)");
-           rb.velocity = new Vector3(rb.velocity.x, rb.velocity.y, speed);
+            cam.transform.Rotate(new Vector3(cam.transform.rotation.x, -0.1f + cam.transform.rotation.y, cam.transform.rotation.z));
+            Debug.Log("Move Forward (X-)");
        }
-       if(Input.GetKey(KeyCode.DownArrow))
+       if(Input.GetKey(KeyCode.D))
        {
-           Debug.Log("Move Backward (Z-)");
-           rb.velocity = new Vector3(rb.velocity.x, rb.velocity.y, -speed);
-       }
-       if(Input.GetKey(KeyCode.LeftArrow))
+           Debug.Log("Move Backward (X+)");
+            cam.transform.Rotate(new Vector3(cam.transform.rotation.x, 0.1f + cam.transform.rotation.y, cam.transform.rotation.z));
+        }
+       if(Input.GetKey(KeyCode.W))
        {
            Debug.Log("Move Left (X-)");
-           rb.velocity = new Vector3( -speed, rb.velocity.y, rb.velocity.z);
-       }
-       else if(Input.GetKey(KeyCode.RightArrow))
+            cam.transform.Rotate(new Vector3(-0.1f + cam.transform.rotation.x, cam.transform.rotation.y, cam.transform.rotation.z));
+        }
+       else if(Input.GetKey(KeyCode.S))
        {
            Debug.Log("Move Right (X+)");
-           rb.velocity = new Vector3(speed, rb.velocity.y, rb.velocity.z);
-       }
-       */
+            cam.transform.Rotate(new Vector3(0.1f + cam.transform.rotation.x, cam.transform.rotation.y, cam.transform.rotation.z));
+        }
+        */
     }
     void Jump() {
         GetComponent<Rigidbody>().velocity = new Vector3(rb.velocity.x, speed, rb.velocity.z);
+        jumpSound.Play();
     }
     void OnCollisionEnter(Collision collision)
     {
@@ -59,6 +75,17 @@ public class PlayerMovement : MonoBehaviour
         {
             Kill(collision.gameObject);
         }
+        if (collision.gameObject.CompareTag("Coin"))
+        {
+            Collect(collision.gameObject);
+        }
+    }
+    void Collect(GameObject coin) { 
+        coin.GetComponent<MeshRenderer>().enabled = false;
+        Destroy(coin);
+        coinsCollected += 1;
+        coinsText.text = "Coins: " + coinsCollected;
+        coinSound.Play();
     }
     void Kill(GameObject enemyWeakness)
     {

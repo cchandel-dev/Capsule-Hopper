@@ -6,6 +6,8 @@ TagManager:
   tags:
   - Enemy Body
   - Enemy Weakness
+  - Lethal Fall
+  - Coin
   layers:
   - Default
   - TransparentFX

@@ -4,6 +4,14 @@ using UnityEngine;
 
 public class Death : MonoBehaviour
 {
+    [SerializeField] AudioSource deathSound;
+    private void Update()
+    {
+        if (transform.position.y < -20)
+        {
+            ReloadLevel();
+        }
+    }
     void OnCollisionEnter(Collision collision)
     {
         if (collision.gameObject.CompareTag("Enemy Body"))
@@ -29,5 +37,6 @@ public class Death : MonoBehaviour
     }
     void ReloadLevel() {
         UnityEngine.SceneManagement.SceneManager.LoadScene(UnityEngine.SceneManagement.SceneManager.GetActiveScene().name);
+        deathSound.Play();
     }
 }
