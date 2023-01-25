@@ -61,6 +61,7 @@
     <Compile Include="Assets\Scripts\WaypointMovement.cs" />
     <Compile Include="Assets\Scripts\Death.cs" />
     <Compile Include="Assets\Scripts\StickyPlatform.cs" />
+    <Compile Include="Assets\Scripts\FinishLevel.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\TextMesh Pro\Shaders\TMPro.cginc" />

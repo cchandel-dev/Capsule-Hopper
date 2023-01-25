@@ -22,23 +22,28 @@ public class PlayerMovement : MonoBehaviour
     void Update()
     {
         //this method creates automatic stop because input goes to zero, if you'd like to use the approach below but have natural deceleration
-        //use GetAxisRaw
         float horizontalinput = Input.GetAxis("Horizontal");
         float verticalinput = Input.GetAxis("Vertical");
+        /*
         float horizontal = Input.GetAxis("Horizontal Pan");
         float vertical = Input.GetAxis("Vertical Pan");
         Camera cam = rb.GetComponentInChildren<Camera>();
-        if (horizontal != 0) {
-            cam.transform.Rotate(new Vector3(horizontal * 5f, 0, 0));
-        }
-        if (vertical != 0)
+        //assume x = 5, y = 50 is 0,0
+        float curr_y = cam.transform.rotation.eulerAngles.y;
+        float curr_x = cam.transform.rotation.eulerAngles.x;
+        if (horizontal < 0  || horizontal > 0 )
         {
-            cam.transform.Rotate(new Vector3(0, vertical * 5f, 0));
+            cam.transform.Rotate(new Vector3(0, horizontal * 0.5f, 0));
         }
+        if (vertical < 0  || vertical > 0 )
+        {
+            cam.transform.Rotate(new Vector3(-vertical * 0.5f, 0, 0));
+        }
+        */
         rb.velocity = new Vector3(horizontalinput * speed, rb.velocity.y, verticalinput * speed);
         if (Input.GetButtonDown("Jump") && IsGrounded())
         {
-            Jump();
+             Jump();
         }
         /*
         //if (Input.GetKeyDown(KeyCode.Space))

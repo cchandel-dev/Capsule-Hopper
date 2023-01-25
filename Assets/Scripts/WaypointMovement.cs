@@ -18,7 +18,7 @@ public class WaypointMovement : MonoBehaviour
     void Update()
     {
         if (Vector3.Distance(transform.position, waypoints[nextIndex].position) < 0.1f)
-            nextIndex = nextIndex >= waypoints.Length -1 ? nextIndex = 0 : nextIndex + 1;
+            nextIndex = nextIndex == 1 ? 0 : 1;
         transform.position = Vector3.MoveTowards(transform.position, waypoints[nextIndex].transform.position, speed*0.1f);
     }
 }
