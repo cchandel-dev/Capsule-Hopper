@@ -353,6 +353,7 @@
 "Assets/Scripts/FinishLevel.cs"
 "Assets/Scripts/PlayerMovement.cs"
 "Assets/Scripts/Rotate.cs"
+"Assets/Scripts/StartMenu.cs"
 "Assets/Scripts/StickyPlatform.cs"
 "Assets/Scripts/WaypointMovement.cs"
 -langversion:9.0
