@@ -15,7 +15,8 @@ public class PlayerMovement : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        rb = GetComponent<Rigidbody>();
+        rb = GetComponent<Rigidbody>(); 
+        Time.fixedDeltaTime = 0.01f;
     }
 
     // Update is called once per frame

@@ -5,14 +5,13 @@ using UnityEngine;
 public class WaypointMovement : MonoBehaviour
 {
     [SerializeField] Transform[] waypoints;
-    int speed;
+    [SerializeField] float speed;
     int nextIndex = 0;
     Transform body;
 
     // Start is called before the first frame update
     void Start()
     {
-        speed = UnityEngine.SceneManagement.SceneManager.GetActiveScene().buildIndex;
     }
 
     // Update is called once per frame

@@ -498,7 +498,7 @@ MonoBehaviour:
   - {fileID: 1598935417}
   - {fileID: 1503780156}
   - {fileID: 375510055}
-  speed: 0.02
+  speed: 0.4
 --- !u!65 &441688381
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -2121,7 +2121,7 @@ MonoBehaviour:
   waypoints:
   - {fileID: 601537172}
   - {fileID: 182822490}
-  speed: 0.07
+  speed: 0.4
 --- !u!1 &1881923139
 GameObject:
   m_ObjectHideFlags: 0
@@ -2339,7 +2339,7 @@ MonoBehaviour:
   waypoints:
   - {fileID: 626350271}
   - {fileID: 612464545}
-  speed: 0.02
+  speed: 0.4
 --- !u!65 &1972993312
 BoxCollider:
   m_ObjectHideFlags: 0

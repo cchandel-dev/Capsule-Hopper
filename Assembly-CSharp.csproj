@@ -64,6 +64,9 @@
     <Compile Include="Assets\Scripts\WaypointMovement.cs" />
     <Compile Include="Assets\Scripts\Death.cs" />
     <Compile Include="Assets\Scripts\StickyPlatform.cs" />
+    <Compile Include="Assets\Scripts\FireAtPlayer.cs" />
+    <Compile Include="Assets\Scripts\BasicTargetting.cs" />
+    <Compile Include="Assets\AdvancedTargetting.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\TextMesh Pro\Shaders\TMPro.cginc" />
