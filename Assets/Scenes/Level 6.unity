@@ -1934,7 +1934,7 @@ PrefabInstance:
     - target: {fileID: 4634290343288230645, guid: 0659c9d306f20644cafbf686cca0ff2b, type: 3}
       propertyPath: pellet
       value: 
-      objectReference: {fileID: 411050791544263753, guid: 123d15cdf0755ab48b0b0e3e52633f21, type: 3}
+      objectReference: {fileID: 411050791544263753, guid: dd8c8132a24891643afe09f55325c528, type: 3}
     - target: {fileID: 6070297437439826340, guid: 0659c9d306f20644cafbf686cca0ff2b, type: 3}
       propertyPath: m_Name
       value: Enemy Sphere

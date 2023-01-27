@@ -7,7 +7,7 @@ public class Death : MonoBehaviour
     [SerializeField] AudioSource deathSound;
     private void Update()
     {
-        if (transform.position.y < -20)
+        if (transform.position.y < -40)
         {
             ReloadLevel();
         }
