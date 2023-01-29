@@ -8,6 +8,7 @@ TagManager:
   - Enemy Weakness
   - Lethal Fall
   - Coin
+  - Floor
   layers:
   - Default
   - TransparentFX

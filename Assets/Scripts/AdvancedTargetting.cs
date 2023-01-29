@@ -21,7 +21,7 @@ public class AdvancedTargetting : MonoBehaviour
     }
     private void Update()
     {
-        if (Time.time - timestart < 0.5f)
+        if (Time.time - timestart < 3f)
         {
             moveDirection = (player.transform.position - transform.position).normalized * moveSpeed;
             rb.velocity = new Vector3(moveDirection.x, moveDirection.y, moveDirection.z);

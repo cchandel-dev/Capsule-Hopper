@@ -6,6 +6,8 @@ public class PlayerMovement : MonoBehaviour
 {
     Rigidbody rb;
     int coinsCollected = 0;
+    bool notOnSticky = true;
+    Transform camera;
     [SerializeField] float speed = 5f;
     [SerializeField] Transform groundCheck;
     [SerializeField] LayerMask ground;
@@ -46,6 +48,14 @@ public class PlayerMovement : MonoBehaviour
         {
              Jump();
         }
+        if (Input.GetButtonDown("Crouch") && notOnSticky)
+        {
+            Crouch();
+        }
+        if (Input.GetButtonUp("Crouch") && notOnSticky)
+        {
+            Uncrouch();
+        }
         /*
         //if (Input.GetKeyDown(KeyCode.Space))
 
@@ -73,8 +83,21 @@ public class PlayerMovement : MonoBehaviour
     }
     void Jump() {
         GetComponent<Rigidbody>().velocity = new Vector3(rb.velocity.x, speed, rb.velocity.z);
-        jumpSound.Play();
+        jumpSound.volume = AudioManager.volume;
+        if (AudioManager.soundFX)
+            jumpSound.Play();
     }
+    void Crouch()
+    {
+        //camera = transform.GetChild(0);
+        //camera.SetParent(null);
+        transform.Rotate(90 , 0, 0, Space.World);
+    }
+    void Uncrouch()
+    {
+        transform.Rotate(-90, 0, 0, Space.World);
+        //camera.SetParent(transform);
+    } 
     void OnCollisionEnter(Collision collision)
     {
         if (collision.gameObject.CompareTag("Enemy Weakness"))
@@ -85,13 +108,26 @@ public class PlayerMovement : MonoBehaviour
         {
             Collect(collision.gameObject);
         }
+        if (collision.gameObject.GetComponent<StickyPlatform>() != null)
+        {
+            notOnSticky = false;
+        }
+    }
+    void OnCollisionExit(Collision collision)
+    {
+        if (collision.gameObject.GetComponent<StickyPlatform>() != null)
+        {
+            notOnSticky = true;
+        }
     }
     void Collect(GameObject coin) { 
         coin.GetComponent<MeshRenderer>().enabled = false;
         Destroy(coin);
         coinsCollected += 1;
         coinsText.text = "Coins: " + coinsCollected;
-        coinSound.Play();
+        coinSound.volume = AudioManager.volume;
+        if (AudioManager.soundFX)
+            coinSound.Play();
     }
     void Kill(GameObject enemyWeakness)
     {

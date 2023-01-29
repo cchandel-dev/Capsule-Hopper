@@ -37,6 +37,8 @@ public class Death : MonoBehaviour
     }
     void ReloadLevel() {
         UnityEngine.SceneManagement.SceneManager.LoadScene(UnityEngine.SceneManagement.SceneManager.GetActiveScene().name);
-        deathSound.Play();
+        deathSound.volume = AudioManager.volume;
+        if(AudioManager.soundFX)
+            deathSound.Play();
     }
 }
