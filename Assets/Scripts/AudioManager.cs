@@ -6,8 +6,8 @@ using UnityEngine.UI;
 public class AudioManager : MonoBehaviour
 {
     public static float volume = 1f;
-    public static bool mute;
-    public static bool soundFX;
+    public static bool mute = false;
+    public static bool soundFX = false;
     [SerializeField] Toggle MuteToggle;
     [SerializeField] Toggle SoundFXToggle;
     [SerializeField] Slider VolumeSlider;

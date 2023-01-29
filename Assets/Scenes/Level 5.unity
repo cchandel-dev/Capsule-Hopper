@@ -2367,7 +2367,7 @@ MonoBehaviour:
   ground:
     serializedVersion: 2
     m_Bits: 64
-  coinsText: {fileID: 0}
+  coinsText: {fileID: 1871639546}
   coinSound: {fileID: 1114490126}
   jumpSound: {fileID: 1114490125}
 --- !u!114 &1114490124
@@ -3753,6 +3753,17 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 24907d1ce3548e34a9ec19751810dc27, type: 3}
+--- !u!114 &1871639546 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1151074576580313977, guid: 24907d1ce3548e34a9ec19751810dc27, type: 3}
+  m_PrefabInstance: {fileID: 1871639545}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1881923139
 GameObject:
   m_ObjectHideFlags: 0
