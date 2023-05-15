@@ -1,2 +1,2 @@
 "# Capsule-Hopper"
-![](https://github.com/cchandel-dev/Capsule-Hopper/recording.mp4)
+![](https://github.com/cchandel-dev/Capsule-Hopper/recording.gif)
